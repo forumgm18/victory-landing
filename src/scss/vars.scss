@@ -1,0 +1,37 @@
+$grid-breakpoints: (
+        xs: 0,
+        xxs: 465px,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1500px
+
+) !default;
+
+$mainFontSize: 16px;
+
+$fontHev: Helvetica, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+$fontRob: Roboto, -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
+$bg_icon : #C81D24;   // основной цвет и правая граница градиента(красный)
+$bg_icon2: #7A0A1E;   // Дополнительный цвет левая граница градиента (темно-красный)
+$bg_icon3 : #641014;  // Дополнительный цвет (темно-красный) еще темнее
+$air :#52ADD7;        // левая граница градиента кнопок(голубой)
+$air2 : #1578A0;      // правая граница градиента кнопок(голубой)
+$airplane : #5f5f5f;      // цвет самолетика
+$fontColor : #2c2c2c;        // основной цвет текста(темно серый)
+$bgc: #f4f4f4; // цвет фона
+$dot: #e1e1e1;  // цвет точек в слайдере
+$ourcd: #f7f7f7; // цвет границы блока описания в секции Нани кейсы (our-cases-description)
+
+:root {
+  --victory-text: #000;
+  --logocontur1 : #000;
+  --logocontur2 : #{$bg_icon};
+  --icon: #fff;
+  --text: #{$bg_icon3};
+  --circle: #{$bg_icon};
+  --arrowdown: #{$fontColor};
+  --air: #{$airplane};
+  --spokcircle: #{$air2};
+}

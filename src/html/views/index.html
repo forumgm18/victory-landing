@@ -1,0 +1,42 @@
+<% var data = {
+  title: "Заголовок | Проект",
+  author: "Harrix",
+
+}; %>
+<% var howworkdata = {
+  descr: "<span>Хотите начать зарабатывать больше?</span><br>Оставьте ваш номер, мы перезвоним"
+}; %>
+<% var ourcasesdata = {
+descr: "<span>Здесь должен быть и ваш сайт!</span><br>Оставьте ваш номер, мы перезвоним"
+}; %>
+
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+  <link rel="stylesheet" href="plugins/jquery.fancybox.min.css" />
+  <link rel="stylesheet" href="plugins/swiper.min.css">
+  <link rel="stylesheet" href="css/style.bundle.css" />
+
+  <title>Лд Victory</title>
+</head>
+<body>
+<div class="container top-bgr">
+  <%= _.template(require('./../includes/header.html').default)(data) %>
+  <%= _.template(require('./../includes/top-section.html').default)(data) %>
+
+</div>
+<%= _.template(require('./../includes/how-work-section.html').default)(data) %>
+<%= _.template(require('./../includes/better-section.html').default)(data) %>
+<%= _.template(require('./../includes/proud-section.html').default)(data) %>
+<%= _.template(require('./../includes/our-cases-section.html').default)(data) %>
+
+
+<%= _.template(require('./../includes/footer.html').default)(data) %>
+<%= _.template(require('./../includes/scripts.html').default)(data) %>
+</body>
+</html>

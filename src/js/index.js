@@ -66,6 +66,7 @@ $(document).ready(function() {
     loop: true,
     centeredSlides: true,
     centeredSlidesBounds: true,
+    roundLengths: true,
     // slidesOffsetBefore: 5,
     // If we need pagination
     pagination: {
@@ -84,6 +85,7 @@ $(document).ready(function() {
     loop: true,
     centeredSlides: true,
     centeredSlidesBounds: true,
+    roundLengths: true,
     // slidesOffsetBefore: 5,
     // If we need pagination
     pagination: {
@@ -95,6 +97,21 @@ $(document).ready(function() {
       nextEl: '.our-cases.slider-block .swiper-button-next',
       prevEl: '.our-cases.slider-block .swiper-button-prev',
     },
+  });
+  var mySwiper3 = new Swiper ('.reviews .swiper-container', {
+    // Optional parameters
+    slidesPerView: 3,
+    loop: true,
+    centeredSlides: true,
+    centeredSlidesBounds: true,
+    spaceBetween: 30,
+    roundLengths: true,
+    // slidesOffsetBefore: 5,
+    // If we need pagination
+    pagination: {
+      el: '.reviews .swiper-pagination',
+    },
+
   })
 
 

@@ -1,16 +1,7 @@
 <% var data = {
   title: "Заголовок | Проект",
-  author: "Harrix",
-
+  author: "Harrix"
 }; %>
-<% var howworkdata = {
-  descr: "<span>Хотите начать зарабатывать больше?</span><br>Оставьте ваш номер, мы перезвоним"
-}; %>
-<% var ourcasesdata = {
-descr: "<span>Здесь должен быть и ваш сайт!</span><br>Оставьте ваш номер, мы перезвоним"
-}; %>
-
-
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -34,6 +25,11 @@ descr: "<span>Здесь должен быть и ваш сайт!</span><br>О�
 <%= _.template(require('./../includes/better-section.html').default)(data) %>
 <%= _.template(require('./../includes/proud-section.html').default)(data) %>
 <%= _.template(require('./../includes/our-cases-section.html').default)(data) %>
+<%= _.template(require('./../includes/sleep-quietly-section.html').default)(data) %>
+<%= _.template(require('./../includes/takeover-girl-section.html').default)(data) %>
+<%= _.template(require('./../includes/reviews-section.html').default)(data) %>
+<%= _.template(require('./../includes/calc-section.html').default)(data) %>
+<%= _.template(require('./../includes/contacts-section.html').default)(data) %>
 
 
 <%= _.template(require('./../includes/footer.html').default)(data) %>

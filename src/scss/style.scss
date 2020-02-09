@@ -348,34 +348,265 @@ h1 {
 
 }
 
-.our-cases-section {
-  .container {
-    background-color: $bgc;
-    padding-top: rem(100);
-    padding-bottom: rem(100);;
+.our-cases {
+  &-section {
+    .container {
+      background-color: $bgc;
+      padding-top: rem(100);
+      padding-bottom: rem(100);;
+    }
+    .row:first-child {
+      padding-right: calc( 55px * 2 );
+    }
+    h1 {
+      margin-right: rem(30);
+      min-width: rem(450);
+      flex-basis: 0%;
+      margin-bottom: rem(40);
+    }
+    .slider {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }
-  .row:first-child {
-    padding-right: calc( 55px * 2 );
+  &-description {
+    @include setFont($fontHev, 16, $fontColor,normal,normal, 1.6);
+    letter-spacing: 0.02em;
+    padding: rem(20) rem(25);
+    background-color: #fff;
+    border: rem(1) solid $ourcd;
+    border-radius: rem(6);
+    flex: 1 1 auto;
+    span {    font-weight: bold;}
+
   }
-  h1 {
-    margin-right: rem(30);
-    min-width: rem(450);
-    flex-basis: 0%;
-    margin-bottom: rem(40);
-  }
-  .slider {
-    padding-top: 0;
-    padding-bottom: 0;
+  &.slider-pagination {
+    margin-bottom: rem(100);
   }
 }
-.our-cases-description {
-  @include setFont($fontHev, 16, $fontColor,normal,normal, 1.6);
-  letter-spacing: 0.02em;
-  padding: rem(20) rem(25);
-  background-color: #fff;
-  border: rem(1) solid $ourcd;
-  border-radius: rem(6);
-  flex: 1 1 auto;
-  span {    font-weight: bold;}
+.accent { color: $bg_icon;}
 
+.sleep-quietly {
+  &-section{
+    padding-top: rem(125);
+    padding-bottom: rem(100);
+  }
+  &-block {
+    @include dFlex(space-between,flex-start,row,wrap);
+
+  }
+  &-item {
+    width: 22%;
+    svg {
+      @include min-size(rem(80));
+      @include size(rem(80));
+      display: block;
+      margin: 0 auto rem(22);
+
+    }
+    >div {
+      @include setFont($fontRob,18,$fontColor,normal,normal, rem(22));
+      text-align: center;
+      letter-spacing: 0.02em;
+
+    }
+  }
+}
+.takeover-girl {
+  &-section {
+    .container {
+      padding-top: rem(50);
+      padding-bottom: rem(50);
+      background-color: $bgc;
+    }
+    .girl {
+      position: absolute;
+      left: rem(100);
+      top: rem(-121);
+    }
+    .takeover-block {
+      background: #fff;
+      padding-top: rem(50);
+      padding-bottom: rem(56);
+      flex-direction: column;
+      align-items: flex-start;
+      padding-left: 0;
+      padding-right: 0;
+      max-width: rem(580);
+
+      div {
+        color: $fontColor;
+        font-size: rem(24);
+        margin-bottom: rem(30);
+        span {
+          font-size: rem(48);
+          //line-height: rem(46);
+          margin-bottom: rem(22);
+        }
+      }
+      input {
+        border-color: $air2;
+        min-width: rem(277);
+      }
+
+    }
+  }
+  &-block {
+    background-color: #fff;
+    border-radius: rem(6);
+    margin-top:  rem(121);
+    margin-bottom: rem(81);
+    position: relative;
+    flex: 1 1 100%;
+    @include dFlex(flex-end);
+    padding-right: rem(176) ;
+  }
+}
+
+.reviews {
+  &-section {
+    .container {
+      background-color: $bgc;
+      padding-top: rem(100);
+      padding-bottom: rem(100);
+    }
+  }
+  &.slider-pagination {
+    margin-bottom: rem(100);
+  }
+
+  &-item {
+    background: $revbgr;
+    border: 1px solid $ourcd;
+    border-radius: rem(6);
+    padding: rem(30);
+    @include setFont($fontHev,16,$fontColor,normal,normal, rem(20));
+    letter-spacing: 0.02em;
+    height: rem(275);
+    max-height: rem(275);
+
+
+    >div {
+      @include dFlex(flex-start, flex-start, column);
+      overflow: hidden;
+      @include min-size(100%);
+      @include max-size(100%);
+
+    }
+
+    &-header {
+      @include dFlex();
+      margin-bottom: rem(33);
+      font-weight: bold;
+      span {
+        font-weight: normal;
+        color: $revtown;
+      }
+
+
+      svg {
+        min-width: rem(50);
+        min-height: rem(38);
+        width: rem(50);
+        height: rem(38);
+        margin-right: rem(20);
+      }
+    }
+    &-content {
+      font-style: italic;
+      margin-bottom: auto;
+    }
+  }
+}
+
+.calc {
+  &-section{
+    .container {
+      background: url(../img/bg-calc.png) no-repeat center;
+      background-size: contain;
+      padding-top: rem(138);
+      padding-bottom: rem(157);
+    }
+    .row {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+  }
+  &-header {
+    flex: 1 1 100%;
+    @include setFont($fontHev, 32, #fff, normal, 500, rem(46));
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: rem(20);
+  }
+
+  &-text {
+    flex: 1 1 100%;
+    @include setFont($fontHev, 24, #fff, normal, normal, rem(46));
+    letter-spacing: 0.02em;
+    text-align: center;
+    margin-bottom: rem(30);
+  }
+
+}
+
+.contacts{
+  &-section {
+    .container {
+      padding-top: rem(93);
+      padding-bottom: rem(100);
+    }
+    #map {
+      flex: 1 1 50%;
+      padding-right: rem(30);
+    }
+  }
+
+  &-block {
+    flex: 1 1 50%;
+    padding: rem(30);
+    background: #fff;
+    border: rem(1) solid $ourcd;
+    border-radius: rem(6);
+    @include setFont($fontHev, 16, $fontColor);
+    letter-spacing: 0.02em;
+    a {color: $fontColor;cursor: pointer;}
+  }
+  &-header {
+    font-weight: 500;
+    font-size: rem(24);
+    margin-bottom: rem(30);
+  }
+  &-item {
+    @include dFlex();
+    margin-bottom: rem(30);
+    svg {
+      @include min-size(rem(20));
+      @include size(rem(20));
+      margin-right: rem(17);
+
+    }
+    .timetable {
+      @include dFlex();
+      margin-right: rem(100);
+    }
+    &:last-child {align-items: center}
+  }
+}
+.soc-link-block {
+  @include dFlex();
+  svg {
+    @include min-size(rem(52));
+    @include size(rem(52));
+    &:not(:last-child){
+      margin-right: rem(35);
+    }
+
+  }
+}
+hr {
+  border: rem(1) solid $hr;
+  margin-bottom: rem(30);
 }

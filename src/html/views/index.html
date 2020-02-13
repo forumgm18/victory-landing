@@ -7,7 +7,8 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, maximum-scale=1" />
+
   <link rel="shortcut icon" href="favicon/favicon.ico" />
   <link rel="stylesheet" href="plugins/jquery.fancybox.min.css" />
   <link rel="stylesheet" href="plugins/swiper.min.css">
@@ -32,7 +33,8 @@
 <%= _.template(require('./../includes/contacts-section.html').default)(data) %>
 
 
-<%= _.template(require('./../includes/footer.html').default)(data) %>
+<%= _.template(require('./../includes/footer.html').default)() %>
+<%= _.template(require('./../includes/modal.html').default)(data) %>
 <%= _.template(require('./../includes/scripts.html').default)(data) %>
 </body>
 </html>

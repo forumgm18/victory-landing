@@ -3,27 +3,33 @@
 @import "fonts";
 @import "reset";
 
+html {
+  font-size: 12px;
+  @include media-min-width('md') {   font-size: 14px;}
+  @include media-min-width('lg') {   font-size: 16px;}
+  //@include media-min-width('xl') {   font-size: 16px;}
+
+}
 
 
 body {
   font-family: $fontRob;
 }
 .top-bgr {
-  background: url(../img/bg.png) no-repeat top center;
+  background: url(../img/bg-mobile.png) no-repeat top center;
   background-size: 100% auto;
-
+    @include media-min-width('lg') { background-image: url(../img/bg.png);    }
 }
-//.content {  padding: 0 rem(75);}
 
 .container {
-  border: 1px solid red;
-  padding: 0 rem(75);
+  //border: 1px solid red;
+  padding: 0 rem(15);
   margin: 0 auto;
-  max-width: 100%;
+  max-width: 100vw;
   @include media-min-width('md') {   max-width: 720px;}
-  @include media-min-width('lg') {   max-width: 992px;}
-  @include media-min-width('xl') {   max-width: 1200px;}
-  @include media-min-width('xxl') {   max-width: 1440px;}
+  @include media-min-width('lg') {   max-width: 992px;padding: 0 rem(35);}
+  @include media-min-width('xl') {   max-width: 1200px;padding: 0 rem(55);}
+  @include media-min-width('xxl') {   max-width: 1440px;padding: 0 rem(75);}
 
 }
 
@@ -38,9 +44,14 @@ svg.icon {
 header {
   padding-top: rem(26);
   svg.icon.logo {
-    height: rem(128);
-    width: rem(106);
+
+    height: rem(50);
+    width: rem(42);
+
     margin-left: rem(5);
+    @include media-min-width('md') { height: rem(80); width: rem(67); }
+    @include media-min-width('lg') { height: rem(100); width: rem(83); }
+    @include media-min-width('xl') { height: rem(128); width: rem(106); }
   }
   > .top {
       align-items: center;
@@ -54,37 +65,53 @@ header {
 .head-contacts {
   margin-left: auto;
   @include dFlex();
+  > .head-link {
+    display: none;
+    @include media-min-width('md') { display: flex; }
+  }
 }
 .head-link {
   @include dFlex();
   align-items: center;
+  //@include setFont($fontHev, 14, $fontColor);
   @include setFont($fontHev, 18, $fontColor);
   margin-right: rem(30);
-  svg { margin-right: rem(5);}
+    //@include media-min-width('md') {    font-size: rem(18); }
 
+    svg { margin-right: rem(5);}
 }
 
 .head-phone-block {
   .head-link {    margin-right: 0;  }
-
 }
+
 .callback-link {
   @include setFont($fontHev, 14, $bg_icon);
   text-decoration: underline;
   float: right;
 }
 .main-content {
-  padding-left: rem(92);
   padding-bottom: rem(36);
-  .btn {    margin-left: rem(10);}
+    //@include media-min-width('md') {    padding-left: rem(50); }
+    //@include media-min-width('lg') {    padding-left: rem(92); }
+
+      .btn {
+        min-width: 100%;
+        @include media-min-width('sm') {    margin-left: rem(10); min-width: unset; }
+      }
 }
+
 .note-header {
+  //@include setFont($fontHev, 22, $fontColor);
+  //line-height: rem(32);
   @include setFont($fontHev, 28, $fontColor);
   line-height: rem(55);
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  //height: 64px;
   padding: 0 rem(18);
+
+    //@include media-min-width('lg') { font-size: rem(28); line-height: rem(55);}
+
 
 }
 .note-block {
@@ -92,20 +119,26 @@ header {
   align-items: center;
   margin-bottom: rem(45);
   div {
+    //@include setFont($fontHev, 24, #fff);
     @include setFont($fontHev, 32, #fff);
     letter-spacing: 0.02em;
     text-transform: uppercase;
     background-color: $bg_icon;
     padding: rem(15) rem(18);
+      //@include media-min-width('lg') { font-size: rem(32);padding: rem(15) rem(18);}
+
   }
-    span {
-      font-weight: bold;
-   }
+    span {font-weight: bold;}
 
   svg.icon {
-    width: rem(88);
-    height: rem(52);
-    margin-left: rem(20);
+    display: none;
+    @include media-min-width('md') {
+      display: block;
+      width: rem(88);
+      height: rem(52);
+      margin-left: rem(20);
+    }
+
   }
 }
 
@@ -114,15 +147,19 @@ header {
   margin-left: rem(10);
   li {
     @include dFlex(flex-start,center);
+    //@include setFont($fontHev, 14, $fontColor);
     @include setFont($fontHev, 16, $fontColor);
     letter-spacing: 0.04em;
-  }
+    //@include media-min-width('md') {   font-size: rem(16);}
+
+    }
 
   li:not(:last-child) {
     margin-bottom: rem(15);
   }
 
   svg {
+    @include min-size(rem(30));
     @include size(rem(30));
     margin-right: rem(30);
   }
@@ -174,10 +211,15 @@ header {
 }
 h1 {
   @include dFlex();
+  //@include setFont($fontHev, 20, $fontColor,normal,500,rem(30));
+  //@include setFont($fontHev, 32, $fontColor,normal,500, 1.5);
   @include setFont($fontHev, 32, $fontColor,normal,500,rem(46));
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  margin-bottom: rem(65);
+  margin-bottom: rem(35);
+    //@include media-min-width('md') {   font-size: rem(24); line-height: rem(34);margin-bottom: rem(45);}
+    //@include media-min-width('lg') {   font-size: rem(32); line-height: rem(46);margin-bottom: rem(65);}
+
 
   &:before {
     content: '';
@@ -187,6 +229,7 @@ h1 {
     border: rem(3) solid $bg_icon;
     border-radius: rem(3);
     margin-right: rem(20);
+    background-color: $bg_icon;
     //transform: rotate(90deg);
   }
 }
@@ -197,59 +240,93 @@ h1 {
 }
 .how-work-item {
   @include dFlex(flex-start,center);
-  flex: 1 1 33%;
+  flex: 1 1 100%;
   margin-bottom: rem(50);
+    @include media-min-width('sm') { flex-basis: 50%}
+    @include media-min-width('md') { flex-basis: 33%}
+
+
   div:not(.better) {
     padding: rem(15) rem(20);
+    //@include setFont($fontRob, 16, $fontColor,normal,normal,rem(21));
     @include setFont($fontRob, 18, $fontColor,normal,normal,rem(21));
     letter-spacing: 0.02em;
+      //@include media-min-width('md') { font-size: rem(18);}
+
   }
   div.better {
+    //@include setFont($fontRob, 18, $fontColor,normal,500,rem(20));
     @include setFont($fontRob, 24, $fontColor,normal,500,rem(28));
     letter-spacing: 0.02em;
     text-align: center;
+      //@include media-min-width('md') {  font-size: rem(24); line-height: rem(28);}
   }
   svg {
-    @include min-size(rem(108));
-    @include size(rem(108));
+    @include min-size(rem(70));
+    @include size(rem(70));
+
+    @include media-min-width('md') {   @include min-size(rem(90));   @include size(rem(90));}
+    @include media-min-width('lg') {   @include min-size(rem(108));   @include size(rem(108));}
+
   }
 }
 .better {
-  @include setFont($fontRob, 20, $fontColor,normal,normal,rem(23));
+  //@include setFont($fontRob, 18, $fontColor,normal,normal,rem(23));
+  @include setFont($fontRob, 20, $fontColor,normal,normal,rem(30));
   letter-spacing: 0.02em;
   background: #fff;
   border: 1px solid $bg_icon;
   border-radius: rem(6);
-  padding: rem(30);
+  padding: rem(10);
+    //@include media-min-width('md') {  font-size: rem(20);padding: rem(30);}
 
 }
+.input-filed {
+  @include setFont($fontHev, 16, #fff);
+  padding: 0 rem(15);
+  border: 1px solid #fff;
+  border-radius: 3px;
+  background: transparent;
+  height: rem(39);
+  flex: 1 1 auto;
+  cursor: pointer;
 
+}
+//.gradient {background: linear-gradient(328deg, $bg_icon 0%, $bg_icon2 100%);}
 .takeover-block {
-  @include dFlex(flex-start,center);
+  @include dFlex(flex-start, center, row, wrap);
   background: linear-gradient(328deg, $bg_icon 0%, $bg_icon2 100%);
-  padding: rem(27) rem(80);
+  padding: rem(20);
   flex: 1 1 100%;
+  max-width: 100%;
+
+    @include media-min-width('md') {  padding: rem(27) rem(40);}
+    @include media-min-width('xl') {  flex-wrap: nowrap;padding: rem(27) rem(80);}
+
 
   div {
-    flex: 0 1 50%;
+    flex: 0 1 100%;
     @include setFont($fontRob, 18, #fff,normal,normal,1.5);
     letter-spacing: 0.02em;
-      span {  font-size: rem(24);}
+    margin-bottom: rem(20);
+      @include media-min-width('xl') {flex-basis: 50%; margin-bottom: 0;}
+
+    span {  font-size: rem(24);}
   }
   form {
-    @include dFlex(flex-start, center);
-    flex: 1 1 50%;
+    @include dFlex(flex-start, center, row, wrap);
+    flex: 1 1 100%;
+      @include media-min-width('xl') {  flex-wrap: nowrap;flex-basis: 50%;}
   }
-  input:not([type=submit]) {
-    @include setFont($fontHev, 16, #fff);
-    padding: 0 rem(15);
-    border: 1px solid #fff;
-    border-radius: 3px;
-    background: transparent;
-    height: rem(39);
-    flex: 1 1 auto;
-    margin-right: rem(20);
-    cursor: pointer;
+  input.input-filed {
+    margin-bottom: rem(20);
+    @include media-min-width('md') {  margin-right: rem(20); margin-bottom: 0;}
+  }
+  .btn {
+    max-width: unset;
+    width: 100%;
+    @include media-min-width('md') {   max-width: rem(277);}
+
   }
 }
 @include placeholder {
@@ -266,39 +343,50 @@ h1 {
   }
 }
 .better-block {
-  @include dFlex(flex-start, center, row, wrap);
+  @include dFlex(space-between, stretch, row, wrap);
+
+    @include media-min-width('lg') { justify-content: flex-start;}
 
   .better {
-    //--ww : calc( 100% / 3 - (40px / 3) * 1% );
-    //width: var(--ww);
-    flex: 0 1 calc( 100% / 3 - 40px * 2 / 3 ) ;
-    min-height: rem(188);
+    flex: 0 1 100%;
+    //min-height: rem(188);
     margin-bottom: rem(30);
-    &:not(:nth-child(3n)) {      margin-right: rem(40);}
+
+    @include media-min-width('sm') {  flex-basis: 48%;}
+    @include media-min-width('lg') {  flex-basis: calc( 100% / 3 - 40px * 2 / 3 ) ;}
+
+    &:not(:nth-child(3n)) {     @include media-min-width('lg') {  margin-right: rem(40);}}
     &:hover {box-shadow: 0px 0px 20px rgba(40, 27, 75, 0.14);}
     svg {
       display: block;
-      margin-bottom: rem(30);
+      margin-bottom: rem(10);
+        @include media-min-width('lg') { margin-bottom: rem(30);}
+
     }
   }
 }
 .swiper-button-next, .swiper-button-prev {
+  display: none;
   opacity: 0.6;
   cursor: pointer;
   transition: opacity .5s;
+  @include media-min-width('md') { display: block;}
   &:hover, &:active{opacity: 1;}
 }
 .swiper-button-next:after, .swiper-button-prev:after {display: none;}
 .swiper-button-next svg, .swiper-button-prev svg {  @include min-size(rem(55));@include size(rem(55));}
 .swiper-button-prev svg {  transform: rotate(180deg);}
 .swiper-pagination-bullet {
-  @include size(rem(14));
+  @include size(11px);
   background-color: $dot;
   margin-right: rem(14);
   opacity: 1;
+  border-radius: 50%;
+  @include media-min-width('md'){@include size(14px);}
   &-active {
-    @include size(rem(18));
+    @include size(14px);
     background-color: $bg_icon;
+    @include media-min-width('md'){@include size(18px);}
 
   }
 }
@@ -321,11 +409,12 @@ h1 {
     border: 1px solid rgba(40, 27, 75, 0.26);
     box-shadow: 0px 0px 20px rgba(40, 27, 75, 0.14);
     border-radius: rem(6);
-    padding: rem(100) rem(45);
-    max-width: calc( 100% - #{rem(220)});
-    //overflow: visible;
-    //flex: 1 1 auto;
-    //flex: 0 1 auto;
+    padding: rem(20);
+    max-width: 100%;
+    @include media-min-width('md'){
+      max-width: calc( 100% - #{rem(220)});
+      padding: rem(100) rem(45);
+    }
 
   }
 }
@@ -344,7 +433,7 @@ h1 {
 }
 .proud-section {  padding-bottom: rem(100);}
 .proud{
-  .swiper-slide {    max-height: rem(440);  }
+  //.swiper-slide {    max-height: rem(440);  }
 
 }
 
@@ -356,13 +445,22 @@ h1 {
       padding-bottom: rem(100);;
     }
     .row:first-child {
-      padding-right: calc( 55px * 2 );
+      margin-bottom: rem(40);
+      flex-wrap: wrap;
+      @include media-min-width('lg'){flex-wrap: nowrap;}
+      @include media-min-width('xl'){padding-right: calc( 55px * 2 );}
+
     }
     h1 {
-      margin-right: rem(30);
-      min-width: rem(450);
-      flex-basis: 0%;
       margin-bottom: rem(40);
+      @include media-min-width('lg'){
+        margin-right: rem(30);
+        min-width: rem(450);
+        flex-basis: 0%;
+        margin-bottom: 0;
+
+      }
+
     }
     .slider {
       padding-top: 0;
@@ -394,9 +492,13 @@ h1 {
   &-block {
     @include dFlex(space-between,flex-start,row,wrap);
 
+
   }
   &-item {
-    width: 22%;
+    width: 48%;
+    margin-bottom: rem(20);
+
+    @include media-min-width('lg'){ width: 22%;  margin-bottom: 0;}
     svg {
       @include min-size(rem(80));
       @include size(rem(80));
@@ -419,20 +521,30 @@ h1 {
       padding-bottom: rem(50);
       background-color: $bgc;
     }
+    .row {
+      margin: 0 rem(-15);
+
+
+      @include media-min-width('md') { margin: initial;}
+    }
     .girl {
+      display: none;
       position: absolute;
-      left: rem(100);
+      left: 0;
       top: rem(-121);
+      @include media-min-width('md') {display: block;}
+      @include media-min-width('xl') {left: rem(100);}
     }
     .takeover-block {
       background: #fff;
-      padding-top: rem(50);
-      padding-bottom: rem(56);
       flex-direction: column;
-      align-items: flex-start;
-      padding-left: 0;
-      padding-right: 0;
-      max-width: rem(580);
+      padding: rem(50) 0;
+      max-width: 100%;
+      align-items: stretch;
+
+        @include media-min-width('md') {align-items: flex-start; max-width: 49%;}
+        @include media-min-width('xxl') {align-items: flex-start;max-width: rem(580);}
+
 
       div {
         color: $fontColor;
@@ -447,6 +559,19 @@ h1 {
       input {
         border-color: $air2;
         min-width: rem(277);
+        margin-bottom: rem(20);
+        margin-right: 0;
+          @include media-min-width('xl') { margin-bottom: 0;  margin-right: rem(20);}
+
+        &::-webkit-input-placeholder {color: $fontColor;}
+        &:-moz-placeholder {color: $fontColor;}
+        &::-moz-placeholder {color: $fontColor;}
+        &:-ms-input-placeholder {color: $fontColor;}
+
+      }
+      .btn {
+        max-width: 100%;
+        @include media-min-width('xl') { max-width: unset; min-width: rem(277);}
       }
 
     }
@@ -454,12 +579,15 @@ h1 {
   &-block {
     background-color: #fff;
     border-radius: rem(6);
-    margin-top:  rem(121);
-    margin-bottom: rem(81);
+    margin-top:  rem(50);    margin-bottom: rem(0);
     position: relative;
     flex: 1 1 100%;
+    padding: 0 rem(15);
     @include dFlex(flex-end);
-    padding-right: rem(176) ;
+
+    @include media-min-width('md') {margin-top:  rem(121);    margin-bottom: rem(81);}
+    @include media-min-width('xl') {padding-right: rem(176) ;}
+
   }
 }
 
@@ -467,8 +595,10 @@ h1 {
   &-section {
     .container {
       background-color: $bgc;
-      padding-top: rem(100);
-      padding-bottom: rem(100);
+      padding-top: rem(50);
+      padding-bottom: rem(50);
+      @include media-min-width('md') {padding-top: rem(100);      padding-bottom: rem(100);}
+
     }
   }
   &.slider-pagination {
@@ -523,7 +653,7 @@ h1 {
   &-section{
     .container {
       background: url(../img/bg-calc.png) no-repeat center;
-      background-size: contain;
+      background-size: cover;
       padding-top: rem(138);
       padding-bottom: rem(157);
     }
@@ -559,8 +689,22 @@ h1 {
       padding-bottom: rem(100);
     }
     #map {
-      flex: 1 1 50%;
-      padding-right: rem(30);
+      //flex: 1 1 50%;
+      //align-self: stretch;
+      @include media-min-width('md') {padding-right: rem(30);}
+    }
+  }
+  &-info {
+    flex-wrap: wrap;
+    @include media-min-width('md') {flex-wrap: nowrap;}
+    >div {
+      width: 100%;
+      min-height: 250px;
+      //min-height: 320px; // при включенном блоке с соцсетями
+      align-self: stretch;
+
+      @include media-min-width('md') { width: 50%;}
+
     }
   }
 
@@ -592,21 +736,154 @@ h1 {
       @include dFlex();
       margin-right: rem(100);
     }
-    &:last-child {align-items: center}
+    &:last-child {
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 0;
+      @include media-min-width('xxl') {flex-wrap: nowrap;}
+    }
   }
 }
 .soc-link-block {
   @include dFlex();
+  display: none;
+  margin-top: rem(20);
+  @include media-min-width('xxl') {    margin-top: 0;}
   svg {
     @include min-size(rem(52));
     @include size(rem(52));
-    &:not(:last-child){
-      margin-right: rem(35);
-    }
-
+    margin-right: 0;
   }
+  a:not(:last-child) {    margin-right: rem(30);  }
+
 }
 hr {
   border: rem(1) solid $hr;
   margin-bottom: rem(30);
 }
+.footer-row-1 {
+  padding-top: rem(24);
+  padding-bottom: rem(22);
+  background-color: $footer_bg1;
+  //a {color: $footer_txt1}
+
+}
+.footer-row-2 {
+  background-color: $footer_bg2;
+  padding-top: rem(21);
+  padding-bottom: rem(27);
+
+  div {
+    @include setFont($fontHev,14,$footer_txt2);
+  }
+  a {color: #fff;}
+}
+footer {
+  .icon.logo {
+    @include size(rem(71));
+    @include min-size(rem(71));
+    --logocontur2 : #fff;
+    --logocontur1 : #{$bg_icon};
+    --victory-text : #fff;
+  }
+  .row{justify-content: space-between;align-items: center;}
+  .phone-link {
+    @include setFont($fontHev,16,#fff);
+    display: block;
+    min-width: 95px;
+    text-align: right;
+  }
+
+}
+.policy-link {
+  @include setFont($fontHev,14,$footer_txt1);
+  text-align: center;
+  margin: 0 rem(15);
+
+}
+.footer-phone-block {
+  //a {display: block;}
+}
+.close svg {
+  @include min-size(rem(21));
+  @include size(rem(21));
+}
+
+.modal {
+  &.fancybox-content{
+    padding: 0;
+    overflow: visible;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.25);
+    border-radius: rem(6);
+  }
+  max-width: rem(400);
+  &-content {
+    position: relative;
+    padding: rem(30);
+    @include media-min-width('md') {padding: rem(36) rem(60);}
+
+  }
+  .close {
+    position: absolute;
+    background: none;
+    top: 10px;
+    right: 10px;
+    padding: 0;
+    cursor: pointer;
+    @include media-min-width('sm') {top: -25px;    right: -25px;}
+  }
+  &-header {
+    @include setFont($fontHev,24,$fontColor,normal,normal,rem(32));
+    text-align: center;
+    letter-spacing: 0.04em;
+    margin-bottom: rem(38);
+  }
+  .input-filed {
+    border-color: $fontColor;
+    color: $fontColor;
+    width: 100%;
+    margin-bottom: rem(20);
+
+    &::-webkit-input-placeholder {color: $fontColor;}
+    &:-moz-placeholder {color: $fontColor;}
+    &::-moz-placeholder {color: $fontColor;}
+    &:-ms-input-placeholder {color: $fontColor;}
+
+    &:focus {border-color: $bg_icon;}
+  }
+  .btn {min-width: 100%;}
+}
+
+.checkbox {
+  @include dFlex();
+  @include setFont($fontHev, 14, $revtown, normal, normal, rem(17));
+  margin-top: rem(20);
+  a {
+    color:$bg_icon;
+    &:hover {text-decoration: underline;}
+  }
+
+  input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    margin: 10px 0 0 20px;
+      &:checked + .chb-fantom svg{display: block;}
+  }
+  .chb-fantom {
+    @include min-size(14px);
+    @include size(14px);
+    border-radius: 3px;
+    background: $bg_icon;
+    margin-right: rem(12);
+    margin-top: rem(3);
+      svg {
+        @include min-size(14px);
+        @include size(14px);
+        display: none;
+        margin: auto;
+      }
+  }
+}
+
+
